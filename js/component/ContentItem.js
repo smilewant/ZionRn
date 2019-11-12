@@ -22,11 +22,11 @@ export default class ContentItem extends Component {
 
 				style={{
 					flexDirection: 'row',
-
 					alignItems: 'center',
-					backgroundColor: '#e4e4e4',
+					backgroundColor: '#ffffff',
 					marginTop: 10
-				}}>
+				}}
+				activeOpacity={0.9}>
 				<View style={{
 					flexDirection: 'row',
 					alignItems: 'center',
@@ -37,20 +37,20 @@ export default class ContentItem extends Component {
 					<View style={
 						{
 							flexDirection: "column",
-							 
+
 							marginLeft: 20
 						}
 					}>
 
-						<Text style={{  color:"#333333" }}  >
+						<Text style={{ color: "#333333" }}  >
 							{text.name}
 						</Text>
 
-						<Text style={{ marginTop: 5,color:"#666666" }}>
+						<Text style={{ marginTop: 5, color: "#666666" }}>
 							{text.single_word}
 						</Text>
 
-						<Text style={{ marginTop: 5, color:"#999999" }}>
+						<Text style={{ marginTop: 5, color: "#999999" }}>
 							{text.short_word}
 						</Text>
 					</View>

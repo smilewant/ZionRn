@@ -10,34 +10,14 @@ import {
 import rootReducer from './reducer'
 import { applyMiddleware, createStore } from 'redux'
 import { Provider } from 'react-redux'
-import { addTodo } from './action'
+import { addTodo, showDialog } from './action'
 import VisibleList from './component/VisibleList'
 import ContentList from './component/ContentList'
+import LoadingView from './component/dialog/LoadingView'
 import thunk from 'redux-thunk'
 import { createLogger } from 'redux-logger'
 import { connect } from 'react-redux'
-
-// const logger = createLogger();
-// const store = createStore(
-// 	rootReducer,
-// 	applyMiddleware(thunk, logger))
-
-
-// export default class App extends Component {
-//     render() {
-//         /**
-//          * 将store传递给App框架
-//          */
-//         return (
-//             <Provider store={store}>
-//                 <Bpp/>
-//             </Provider>
-//         )
-//     }	
-
-
-// }
-
+import AddToDo from './component/AddToDo';
 
 class App extends Component {
 
@@ -49,29 +29,31 @@ class App extends Component {
 
 	_getHotList = () => {
 		let { dispatch } = this.props;
-		fetch("http://m.app.haosou.com/index/getData?type=1&page=1" )
-		.then((response) => response.json())
-		.then((responseJson) => responseJson.list)
-		.then((list) => {
-			console.log("list.size : " + list.length)
-			list.forEach(element => {
-				dispatch(addTodo(element))
-			});
-			
-		})
+		dispatch(showDialog(true));
+		fetch("http://m.app.haosou.com/index/getData?type=1&page=1")
+			.then((response) => response.json())
+			.then((responseJson) => responseJson.list)
+			.then((list) => {
+				console.log("list.size : " + list.length)
+				dispatch(showDialog(false));
+				list.forEach(element => {
+					dispatch(addTodo(element));
+				
+				});
 
-		
-		.catch((error) => {
-			console.error(error);
-		});
-    }
+			}).catch((error) => {
+				console.error(error);
+			});
+	}
 	//少了flex这个属性，flatlist会显示不全
 	render() {
 		let { dispatch } = this.props;
+		this._getHotList();
 		return (
-			<View style={{ flexDirection: 'column', flex: 1 }}>
-
-				<TextInput
+			
+			<View style={{ flexDirection: 'column', flex: 1 ,backgroundColor:'#e4e4e4'}}>
+				
+				{/* <TextInput
 					style={{ borderWidth: 1, borderColor: 'blue', textAlign: 'center', paddingVertical: 0 }}
 					onChangeText={
 						text => this.value = text
@@ -81,18 +63,14 @@ class App extends Component {
 				<Button
 					title="Add Todo"
 					onPress={() => {
-						// dispatch(addTodo(isEmpty(this.value)))
+
 						this._getHotList()
-						// let temp = this.state.sendMessages
-						// temp.push( state.text)
-						// this.setState({
-						// 	sendMessages : temp
-						// })
+
 					}
-					} />
-
+					} /> */}
+				<AddToDo/>
 				<VisibleList />
-
+				<LoadingView />
 			</View>
 
 		)
@@ -100,7 +78,7 @@ class App extends Component {
 
 	}
 
-	
+
 
 	//
 	// constructor(props){

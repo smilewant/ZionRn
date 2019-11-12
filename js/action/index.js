@@ -1,7 +1,9 @@
 
 
 import {
-	ADD_TODO
+	ADD_TODO,
+	SHOW_DIALOG,
+	CLEAR_TODO
 } from './types'
 let nextTodoId = 0;
 export const addTodo = text => ({
@@ -10,7 +12,17 @@ export const addTodo = text => ({
 	text
 });
 
+export const clearTodo = () => ({
+    type: CLEAR_TODO,
+    
+});
+
 export const toggleTodo = id => ({
     type: TOGGLE_TODO,
     id
+});
+
+export const showDialog = isShow => ({
+    type: SHOW_DIALOG,
+    isShow
 });

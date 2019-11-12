@@ -6,7 +6,7 @@ import {
 } from 'react-native'
 import ContentItem from './ContentItem'
 import { connect } from 'react-redux'
-import { addTodo } from '../action'
+import { addTodo, clearTodo } from '../action'
 class ContentList extends Component {
     static propTypes = {
         todos: PropTypes.arrayOf(
@@ -43,7 +43,9 @@ class ContentList extends Component {
         this.refreshing = false;
         this.num++;
         // dispatch(addTodo(this.num));
-        this.setState({})
+        // this.setState({})
+
+        dispatch(clearTodo())
     };
 
     //data代表的是什么 
