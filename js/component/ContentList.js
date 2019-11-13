@@ -7,6 +7,8 @@ import {
 import ContentItem from './ContentItem'
 import { connect } from 'react-redux'
 import { addTodo, clearTodo } from '../action'
+import { createAppContainer } from 'react-navigation';
+import { createStackNavigator } from 'react-navigation-stack';
 class ContentList extends Component {
     static propTypes = {
         todos: PropTypes.arrayOf(
@@ -46,6 +48,7 @@ class ContentList extends Component {
         // this.setState({})
 
         dispatch(clearTodo())
+       
     };
 
     //data代表的是什么 

@@ -14,6 +14,7 @@ class AddTodo extends Component {
 
         this.element = {
             name: '',
+            single_word:'',
         };
     }
 
@@ -25,18 +26,17 @@ class AddTodo extends Component {
                     style={{ flex: 1, borderWidth: 1, borderColor: '#cccccc', textAlign: 'center' }}
                     onChangeText={text => this.element.name = text}
                 />
-                <Button title="Add Todo" onPress={() => dispatch(
-                    
-                    addTodo(this.element)
-                )} />
+                <Button title="Add Todo" onPress={() => {
+                     var date= new Date();
+                     var time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
+                     this.element.single_word = time;
+                    dispatch(addTodo(this.element))}
+                 } />
             </View>
         )
     }
-
-
-
 }
-
+//react-native-gesture-handler@1.5.0
 function trim(a) {
     if (typeof a == 'string') {
         return a.replace(/\s+/, '');
