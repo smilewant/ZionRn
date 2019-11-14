@@ -3,9 +3,11 @@
 import {
 	ADD_TODO,
 	SHOW_DIALOG,
-	CLEAR_TODO
+	CLEAR_TODO,
+	ADD_NOTE,
 } from './types'
 let nextTodoId = 0;
+let nextNoteId = 0;
 export const addTodo = text => ({
 	type:ADD_TODO,
 	id: nextTodoId++,
@@ -25,4 +27,10 @@ export const toggleTodo = id => ({
 export const showDialog = isShow => ({
     type: SHOW_DIALOG,
     isShow
+});
+
+export const addNote = note => ({
+	type:ADD_NOTE,
+	id: nextNoteId++,
+	note
 });

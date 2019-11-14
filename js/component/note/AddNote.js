@@ -6,37 +6,41 @@ import {
     Button,
 } from 'react-native'
 import { connect } from 'react-redux'
-import { addTodo } from '../action'
-import DeviceStorage from '../storage/DeviceStorage';
+import { addTodo } from '../../action'
+import DeviceStorage from '../../storage/DeviceStorage';
 
 
-class AddTodo extends Component {
+class AddNote extends Component {
     constructor(props) {
         super(props);
 
         this.element = {
             name: '',
-            single_word:'',
+            date:'',
+            content:'',
+           
         };
     }
 
     render() {
         let { dispatch } = this.props;
         return (
-            <View style={{ flexDirection: 'column' }}>
+            <View style={{ flexDirection: 'row' }}>
                 <TextInput
                     style={{ flex: 1, borderWidth: 1, borderColor: '#cccccc', textAlign: 'center' }}
-                    onChangeText={text => this.element.name = text}
+                    onChangeText={text => this.element.content = text}
                 />
                 <Button title="Add Todo" onPress={() => {
                      var date= new Date();
                      var time = date.getFullYear() + "-" + (date.getMonth() + 1) + "-" + date.getDate();
-                     this.element.single_word = time;
+                     this.element.date = time;
+                     
                      console.log("Button : " + this.element)
                     DeviceStorage.save("note", this.element);
 
                     // dispatch(addTodo(this.element))
-                }} />
+                }
+                 } />
             </View>
         )
     }
@@ -60,4 +64,4 @@ function isEmpty(a) {
     }
 }
 
-export default connect()(AddTodo)
+export default connect()(AddNote)

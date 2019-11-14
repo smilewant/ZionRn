@@ -4,12 +4,13 @@ import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './component/screen/HomeScreen';
 import AddToDo from './component/AddToDo';
+import AddNote from './component/note/AddNote';
 import { connect } from 'react-redux'
  
 const AppNavigator = createStackNavigator(
 	{
 	  Home: HomeScreen,
-	  Details: AddToDo,
+	  AddNote: AddNote,
 	},
 	{
 	  initialRouteName: 'Home',
