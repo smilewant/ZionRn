@@ -1,5 +1,6 @@
 import {
-	ADD_NOTE, 
+	ADD_NOTE,
+	CLEAR_NOTE,
 } from '../action/types'
 
 const notes = (state = [], action) => {
@@ -14,7 +15,8 @@ const notes = (state = [], action) => {
 				completed: false,
 			})
 			return tState
-	 
+		case CLEAR_NOTE:
+			return []
 		default:
 			return state;
 	}

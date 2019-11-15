@@ -9,6 +9,7 @@ import { connect } from 'react-redux';
  
  
 import NoteItem from './NoteItem';
+import { clearNote } from '../../action';
 class NoteList extends Component {
     static propTypes = {
         notes: PropTypes.arrayOf(
@@ -32,10 +33,10 @@ class NoteList extends Component {
 
     _onRefresh = () => {
         // 不处于 下拉刷新
-        
+        let { dispatch } = this.props;
         this.refreshing = false;
 
-      
+        // dispatch(clearNote())
     };
 
     //data代表的是什么 
@@ -48,14 +49,14 @@ class NoteList extends Component {
             />
         )
     };
-
+ 
 
     render() {
         let { notes } = this.props;
         return (
             <FlatList
                 data={notes}
-                style={{ flex: 0 }}
+                style={{ flex:1 }}
                 onEndReached={this._onEndReached}
                 refreshControl={
                     <RefreshControl

@@ -5,6 +5,7 @@ import {
 	SHOW_DIALOG,
 	CLEAR_TODO,
 	ADD_NOTE,
+	CLEAR_NOTE
 } from './types'
 let nextTodoId = 0;
 let nextNoteId = 0;
@@ -33,4 +34,9 @@ export const addNote = note => ({
 	type:ADD_NOTE,
 	id: nextNoteId++,
 	note
+});
+
+export const clearNote = () => ({
+    type: CLEAR_NOTE,
+    
 });

@@ -14,7 +14,7 @@ export default class DeviceStorage{
             return AsyncStorage.getItem(
               key,
               (error, result) => {
-                  console.log(error)
+                  console.log('error : ' + error)
                   console.log('result : ' + result)
                   const jsonValue = JSON.parse(result);
                   console.log('jsonValue : ' + jsonValue)

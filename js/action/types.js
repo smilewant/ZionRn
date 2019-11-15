@@ -5,3 +5,4 @@ export const CLEAR_TODO = "CLEAR_TODO"
 export const SHOW_DIALOG = "SHOW_DIALOG"
 
 export const ADD_NOTE = "ADD_NOTE"
+export const CLEAR_NOTE = "CLEAR_NOTE"
