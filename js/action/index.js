@@ -5,7 +5,8 @@ import {
 	SHOW_DIALOG,
 	CLEAR_TODO,
 	ADD_NOTE,
-	CLEAR_NOTE
+	CLEAR_NOTE,
+	REFRESH_NOTE
 } from './types'
 let nextTodoId = 0;
 let nextNoteId = 0;
@@ -39,4 +40,9 @@ export const addNote = note => ({
 export const clearNote = () => ({
     type: CLEAR_NOTE,
     
+});
+
+export const refreshNote = note => ({
+    type: REFRESH_NOTE,
+    note
 });

@@ -11,11 +11,12 @@ import PropTypes from 'prop-types'
 export default class NoteItem extends Component {
     static propTypes = {
         id: PropTypes.number,
-        note: PropTypes.object
+        note: PropTypes.object,
+        navigate: PropTypes.object.isRequired
     };
 
     render() {
-        let { id, note } = this.props;
+        let { id, note,navigate } = this.props;
 
         return (
             <TouchableOpacity style={{
@@ -24,14 +25,15 @@ export default class NoteItem extends Component {
                 backgroundColor: '#ffffff',
                 marginTop: 10,
                 marginLeft: 15,
-                marginRight:15,
+                marginRight: 15,
             }}
+                onPress={() =>  navigate.navigate('AddNote', note)}
                 activeOpacity={0.9}>
                 <View style={{
                     flexDirection: 'column',
                     // alignItems: 'center',
                     backgroundColor: '#ffffff',
-                    flex : 1
+                    flex: 1
                 }}>
                     <View style={{
                         flexDirection: "row",
@@ -41,11 +43,11 @@ export default class NoteItem extends Component {
                         // justifyContent:"space-between"    
                     }}>
                         <Text style={{ color: "#333333" }}  >
-                            { id}
+                            {id}
                         </Text>
 
-                        <Text style={{ color: "#666666" , position: "absolute", right:10, top:10}}>
-                            
+                        <Text style={{ color: "#666666", position: "absolute", right: 10, top: 10 }}>
+
                             {note.date}
                         </Text>
                     </View>

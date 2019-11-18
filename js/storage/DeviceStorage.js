@@ -17,7 +17,6 @@ export default class DeviceStorage{
                   console.log('error : ' + error)
                   console.log('result : ' + result)
                   const jsonValue = JSON.parse(result);
-                  console.log('jsonValue : ' + jsonValue)
                   
               }
             ).catch(

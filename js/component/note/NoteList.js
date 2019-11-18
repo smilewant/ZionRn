@@ -19,6 +19,7 @@ class NoteList extends Component {
                 note: PropTypes.object
             }).isRequired
         ).isRequired,
+        navigate: PropTypes.object.isRequired
 
     };
     constructor(props) {
@@ -46,6 +47,7 @@ class NoteList extends Component {
         return (
             <NoteItem key={id}
                 {...dataItem}
+                navigate = {this.props.navigate}
             />
         )
     };

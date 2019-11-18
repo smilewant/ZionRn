@@ -1,6 +1,7 @@
 import {
 	ADD_NOTE,
 	CLEAR_NOTE,
+	REFRESH_NOTE,
 } from '../action/types'
 
 const notes = (state = [], action) => {
@@ -17,6 +18,9 @@ const notes = (state = [], action) => {
 			return tState
 		case CLEAR_NOTE:
 			return []
+		case REFRESH_NOTE:
+			// return state.map(todo => (todo.note.id === note.id) ? { ...todo， note } : todo);
+			return state.map(todo => todo);//用于AddNoteScreen ，这里没有遍历为啥就能更新
 		default:
 			return state;
 	}

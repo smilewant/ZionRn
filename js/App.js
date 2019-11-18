@@ -3,8 +3,7 @@ import React, { Component } from 'react';
 import { createAppContainer } from 'react-navigation';
 import { createStackNavigator } from 'react-navigation-stack';
 import HomeScreen from './component/screen/HomeScreen';
-import AddToDo from './component/AddToDo';
-import AddNote from './component/screen/AddNoteScreen';
+import AddNoteScreen from './component/screen/AddNoteScreen';
 import { connect } from 'react-redux'
  
 const AppNavigator = createStackNavigator(

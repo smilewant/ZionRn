@@ -30,8 +30,7 @@ class HomeScreen extends Component {
         dispatch(clearNote())
         element.then((element) => {
             console.log("element  2 : " + element)
-            // console.log("element  3 : " + JSON.stringify(element ))
-            // if((typeof element) == 'object' && element != null)
+           
             if (element != null) {
                 var message = JSON.parse(element)
                 message.forEach(
@@ -60,10 +59,11 @@ class HomeScreen extends Component {
     }
 
     render() {
-
+        console.log("HomeScreen render "  )
+         
 
         return <View style={{ flexDirection: 'column', flex: 1, backgroundColor: '#e4e4e4' }}>
-            <NoteList />
+            <NoteList navigate={this.navigate}/>
             <LoadingView />
 
             <TouchableOpacity style={{
@@ -80,9 +80,11 @@ class HomeScreen extends Component {
         </View>
     }
 
-    // 生命周期相关 start 暂时没找到和onCreate相似的方法，网上的生命周期好几个都过时了， 如：  componentWillMount()
+    // 生命周期相关 start 暂时没找到和onResume相似的方法，网上的生命周期好几个都过时了， 如：  componentWillMount()
+ 
+
     componentDidMount() {
-        // console.log("componentDidMount "  )
+        console.log("HomeScreen componentDidMount "  )
 
         this._getHotList();
     }
@@ -99,7 +101,7 @@ class HomeScreen extends Component {
         console.log("componentDidUpdate---组件更新完毕");
     }
     componentWillUnmount() {
-        // console.log("componentWillUnmount---组件卸载");
+          console.log("HomeScreen componentWillUnmount---组件卸载");
     }
 }
 
