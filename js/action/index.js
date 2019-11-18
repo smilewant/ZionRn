@@ -6,7 +6,8 @@ import {
 	CLEAR_TODO,
 	ADD_NOTE,
 	CLEAR_NOTE,
-	REFRESH_NOTE
+	REFRESH_NOTE,
+	DELETE_NOTE
 } from './types'
 let nextTodoId = 0;
 let nextNoteId = 0;
@@ -44,5 +45,10 @@ export const clearNote = () => ({
 
 export const refreshNote = note => ({
     type: REFRESH_NOTE,
+    note
+});
+
+export const deleteNote = note => ({
+    type: DELETE_NOTE,
     note
 });

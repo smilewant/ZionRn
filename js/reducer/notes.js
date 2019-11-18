@@ -2,6 +2,7 @@ import {
 	ADD_NOTE,
 	CLEAR_NOTE,
 	REFRESH_NOTE,
+	DELETE_NOTE,
 } from '../action/types'
 
 const notes = (state = [], action) => {
@@ -21,6 +22,10 @@ const notes = (state = [], action) => {
 		case REFRESH_NOTE:
 			// return state.map(todo => (todo.note.id === note.id) ? { ...todo， note } : todo);
 			return state.map(todo => todo);//用于AddNoteScreen ，这里没有遍历为啥就能更新
+		case DELETE_NOTE:
+			let temp = state.filter(item =>
+					item.note.id != note.id)
+			return temp
 		default:
 			return state;
 	}
