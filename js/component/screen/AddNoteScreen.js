@@ -13,7 +13,7 @@ import DeviceStorage from '../../storage/DeviceStorage';
 import Img from '../../common/Img';
 
 
-class AddNote extends Component {
+class AddNoteScreen extends Component {
     constructor(props) {
         super(props);
 
@@ -62,7 +62,7 @@ class AddNote extends Component {
                                 this.sendMessages.push(this.element)
                                 DeviceStorage.save("note", this.sendMessages);
                             }
-
+                            this.props.navigation.pop();
                         }
                     )
                 }}>
